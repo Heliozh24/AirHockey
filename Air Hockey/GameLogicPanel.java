@@ -11,15 +11,12 @@ import java.awt.Font;
 import javax.swing.Box;
 import java.awt.Rectangle;
 import java.util.ArrayList;
-import java.security.Key;
 import java.awt.Graphics2D;
-import java.awt.Point;
 import java.awt.BasicStroke;
 import javax.swing.Timer;
 import javax.swing.JPanel;
 import javax.swing.BoxLayout;
 import java.awt.Component;
-import java.awt.FlowLayout;
 import java.awt.Dimension;
 
 class GameLogicPanel extends JPanel implements KeyListener
@@ -29,8 +26,8 @@ class GameLogicPanel extends JPanel implements KeyListener
     private Color borderColor;
     private Color lineColor;
     private GameGui frame;
-    private PlayerHandle redPlayerHandle = new PlayerHandle(Color.red,360,110,75,75,KeyEvent.VK_W,KeyEvent.VK_S,KeyEvent.VK_A,KeyEvent.VK_D,70,340,0,701);
-    private PlayerHandle bluePlayerHandle = new PlayerHandle(Color.blue,360,660,75,75, KeyEvent.VK_UP,KeyEvent.VK_DOWN,KeyEvent.VK_LEFT,KeyEvent.VK_RIGHT,420,700,0,701);
+    private PlayerHandle redPlayerHandle = new PlayerHandle(360,110,75,75,KeyEvent.VK_W,KeyEvent.VK_S,KeyEvent.VK_A,KeyEvent.VK_D,70,340,0,701);
+    private PlayerHandle bluePlayerHandle = new PlayerHandle(360,660,75,75, KeyEvent.VK_UP,KeyEvent.VK_DOWN,KeyEvent.VK_LEFT,KeyEvent.VK_RIGHT,420,700,0,701);
     private Ball ball;
     private JPanel redTeamPanel = new JPanel(); // panels
     private JPanel blueTeamPanel = new JPanel();
@@ -114,15 +111,15 @@ class GameLogicPanel extends JPanel implements KeyListener
         {
             if( x < 250 || x > 510)
             {
-                upDownBorder.add(new Rectangle(x,70,19,4));  //border placement
-                upDownBorder.add(new Rectangle(x,800-30,19,4));
+                upDownBorder.add(new Rectangle(x,70,19,5));  //border placement
+                upDownBorder.add(new Rectangle(x,800-30,19,5));
             }
         }
 
         for(int y = 70; y <= 800-30; y+=22)
         {
-            leftRightBorder.add(new Rectangle(0,y,4,19));  //border placement
-            leftRightBorder.add(new Rectangle(800-15,y,4,19));
+            leftRightBorder.add(new Rectangle(0,y,5,19));  //border placement
+            leftRightBorder.add(new Rectangle(800-15,y,5,19));
         }
 
         //Timer setting
@@ -202,8 +199,8 @@ class GameLogicPanel extends JPanel implements KeyListener
     {
         borderColor = (boardColor == Color.black) ? Color.white : Color.black;
         ball = new Ball(ballColor,377,406,30,30);
-        redPlayerHandle = new PlayerHandle(Color.red,360,110,75,75,KeyEvent.VK_W,KeyEvent.VK_S,KeyEvent.VK_A,KeyEvent.VK_D,70,340,0,701);
-        bluePlayerHandle = new PlayerHandle(Color.blue,360,660,75,75, KeyEvent.VK_UP,KeyEvent.VK_DOWN,KeyEvent.VK_LEFT,KeyEvent.VK_RIGHT,420,700,0,701);
+        redPlayerHandle = new PlayerHandle(360,110,75,75,KeyEvent.VK_W,KeyEvent.VK_S,KeyEvent.VK_A,KeyEvent.VK_D,70,340,0,701);
+        bluePlayerHandle = new PlayerHandle(360,660,75,75, KeyEvent.VK_UP,KeyEvent.VK_DOWN,KeyEvent.VK_LEFT,KeyEvent.VK_RIGHT,420,700,0,701);
     }
 
     public boolean isIntersecting(PlayerHandle playerhandle, Ball ball) // method of finding if the ball collided with players

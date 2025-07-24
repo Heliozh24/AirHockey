@@ -1,6 +1,3 @@
-import java.awt.Graphics;
-import java.awt.RenderingHints.Key;
-import java.awt.Color;
 
 class PlayerHandle // the player handle/paddle
 {
@@ -23,7 +20,6 @@ class PlayerHandle // the player handle/paddle
     private int rightLimit;
     private int centreX;
     private int centreY;
-    private Color color;
     private int width;
     private int height;
     //Getters/setters
@@ -188,9 +184,8 @@ class PlayerHandle // the player handle/paddle
         y = y + dy;
     }
     //constructor
-    public PlayerHandle(Color color, int x, int y, int width, int height, int upKey, int downKey, int leftKey, int rightKey, int topLimit, int downLimit, int leftLimit, int rightLimit)
+    public PlayerHandle( int x, int y, int width, int height, int upKey, int downKey, int leftKey, int rightKey, int topLimit, int downLimit, int leftLimit, int rightLimit)
     {
-        this.color = color;
         this.dx = 0;
         this.dy = 0;
         this.passedDownBorders = false;

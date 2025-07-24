@@ -52,12 +52,30 @@ class Ball // the ball of the game
 
     public void setX(int value) //setters which change the position (relocation)
     {
-        x += value;         
+        x += value;     
+        if (x < 0)
+            x = 0;
+        else if(x > 753) // we do not let the ball go out of bounds (borders)
+        {
+            getVelocity().setX(getVelocity().getX()*(-1));     //reflect ball's vector speed again (otherwise ball will still get out of bounds)
+            x += getVelocity().getX(); 
+            setY((int) getVelocity().getY());    
+            setCentreX(); 
+            setCentreY();
+        }   
     }
 
     public void setY(int value)
     {
-        y += value; 
+        y += value;
+        if( y < 65 && (x < 250 || x > 510))
+        {
+            getVelocity().setY(getVelocity().getY()*(-1));    //reflect ball's vector speed again (otherwise ball will still get out of bounds)
+            setX((int) getVelocity().getX());  
+            y += getVelocity().getY();    
+            setCentreX(); 
+            setCentreY();
+        }
     }
 
     public double getRadius()       //radius useful for the itersection mechanism
