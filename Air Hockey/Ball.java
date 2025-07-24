@@ -68,7 +68,7 @@ class Ball // the ball of the game
     public void setY(int value)
     {
         y += value;
-        if( y < 65 && (x < 250 || x > 510))
+        if( (y < 65 && (x < 250 || x > 510)) || (y > 740 && (x < 250 || x > 510)))
         {
             getVelocity().setY(getVelocity().getY()*(-1));    //reflect ball's vector speed again (otherwise ball will still get out of bounds)
             setX((int) getVelocity().getX());  
